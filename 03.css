@@ -119,6 +119,18 @@ img{
     padding: 20px;
     /* margin-right: 3.33333%; */
     margin-bottom: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card > .button{/* > 的意思：僅限於 .card 內的第一層 */
+    margin-top: auto;
+}
+
+.button{
+    height: 44px;
+    background: gray;
 }
 
 

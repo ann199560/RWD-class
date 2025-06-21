@@ -135,3 +135,42 @@ A：因為這不是絕對值，不精準
 Q：為何不使用 GAP？
 
 A：因為 GAP 是固定值，如果今天一列中只有 2 個容器就不適合
+
+----------------------------
+
+遇到情境：當卡片內容不一樣多時怎麼辦？
+
+A：在「內容」裏加上 display: flex、flex-direction: column;
+
+再寫
+.card > .button{ 
+    margin-top: auto;
+}
+
+（> 的意思：僅限於 .card 內的第一層）
+
+
+margin collapse
+
+可參考卡斯伯的 blog：CSS 失控的 margin top
+https://www.casper.tw/css/2016/06/08/css-margin-collapsing/#google_vignette
+
+----------------------------
+
+關於框架概念
+可以理解成
+.container 容器是與外部空間的定位
+.row 是內部 column 的定位
+.column 容器是來決定「內容」寬度與區塊間的 gutter
+
+----------------------------
+
+> gutter：格線系統概念ㄉ用詞（繪圖軟體、Bootstrap 都會看到此字
+
+> gap：flex gap，一般提到的小間距
+
+----------------------------
+
+Q： .container 補 padding 既然是為了行動版，為何不寫在 ＠media？
+
+A：為了修正 負值 margin（如果不加，位置也不夠精準
