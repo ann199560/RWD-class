@@ -1,0 +1,131 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+.box{
+    height: 500px;
+}
+
+.bg{
+    /* 可想像成這段會重複使用 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+
+/* .card{
+    border: 1px solid black;
+    width: 30%;
+    padding: 20px;
+    margin-right: 3.33333%;
+    
+} */
+
+
+
+/* @media (max-width: 576px) {
+    .card{
+        width: 100%;
+        margin-right: 0;
+    }
+} */
+ 
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.container /* 外容器 */{
+    max-width: 960px;
+    /* 數值尺寸看設計稿 */
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.d-flex /* 第二層容器，訂定排列方式、推擠的空間 */{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-row /* 被推擠的空間，會設在第二層容器 */{
+    margin:0 -12px;
+    /*把左右被 column 推出的寬度推回去，但縮小視窗會出現 X 軸，因此加了這段還要再在 .container 加程式碼 */
+}
+
+.column /* 第三層容器 */ {
+    width: 25%;
+    padding: 0 12px;
+}
+
+.card /*內容 */{
+    border: 1px solid black;
+    /* width: 30%;
+    「內容」不需要寬度！
+    寬度全由「容器」決定（column）！ */
+    padding: 20px;
+    /* margin-right: 3.33333%; */
+    margin-bottom: 24px;
+}
+
+
+
+
+@media (max-width: 576px) {
+    .column {
+        width: 100%;
+}
+}

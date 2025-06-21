@@ -1,0 +1,137 @@
+＊ Q：CSS的Unit有很多種類： PX, REM, EM, %, VH, and VW，什麼時候使用哪一個更好做 RWD？ 
+
+Ａ：padding / margin 前期以 px 為主：優點是穩定
+width： %、px 都可
+gap：也會使用 px
+不建議使用 EM、REM！
+
+因為 REM 是基於文字尺寸的單位，基本是 16 px；所以 .5REM、1REM、2REM 等等就是 8 px、16 px、32 px，還要另外換算
+
+VH（整個視窗的高度）、VW（整個視窗的寬度） 是看使用情境，無好壞之分
+
+裡面最有爭議是 ％，等等會講到案例
+
+這邊先講 box-sizing、圖片運用，稍後也會講到設計稿轉 RWD 網頁
+
+
+＊ 這串加上：維持該網頁原本指定合模型ㄉ尺寸
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+----------------------------------------
+
+＊ 變換圖片運用技巧部分：
+
+免費商用圖片庫：https://unsplash.com/
+專題題目推薦：（餐飲）拉麵、牛排
+小技巧：圖片尺寸不夠可用 ps beta版 AI 擴充範圍
+
+
+＊ 這串加上：圖片最大不超過 100%，跟著父容器尺寸
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+＊ unsplash小祕技：網址內 w 可直接改尺寸
+<img src="https://images.unsplash.com/photo-1749741355867-8d40976f2bfb?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8" alt="刷卡">
+
+
+
+＊ 變換圖片運用技巧 2：
+
+<picture>
+<!-- 當螢幕寬度少於 600 px 時，替換圖片 -->
+ <source srcset="https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/mobile/blog-content/About%20Section.png?raw=true" media="(max-width: 992px)">
+
+<!-- 預設圖片，通常是桌面版本 -->
+ <img src="https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/blog-content/About%20Section.png?raw=true" alt="圖片">
+ </picture>
+
+＊ max-width: 100%：跟著父層範圍
+width: 100%：自己拉滿，不管父層（可能破格）；圖片原本尺寸小時，w 100 % 會糊掉（因此不建議使用 width: 100%）
+
+建議加上 height: auto，不然有些瀏覽器也會圖片變形
+
+
+
+
+＊ CSS 不建議操作圖片，通常寫在 Html，並設 style
+
+情境1：輪播圖
+產品圖是由資料庫寫入，後端不會改到 CSS 檔案，引此不能寫在 css 裏
+///////////
+
+Q：下串背景設定也直接寫在 style 裡嗎？
+background-repeat: no-repeat;
+background-size: cover; 
+
+A：下兩串建議寫在 class 裡面
+background-repeat: no-repeat;
+background-size: cover; 
+
+如下：html class 設完，再設 style
+<div class="bg" style="background-image: url(https://images.unsplash.com/photo-1743448748313-80eb7f9eb2b7?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8));"></div>
+
+.bg{
+    /* 可想像成這段會重複使用 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+----------------------------------------
+
+RWD 響應式網站：
+
+＊ RWD 斷點尺寸可去 boostrap 網站找
+https://getbootstrap.com/docs/5.3/layout/containers/
+手機：≥ 576 px
+平板：≥ 768 px
+
+使用 @media (max-width: 576px) {} 來做！
+（網頁不可以有 X 軸！）
+
+
+＊ Q：寫其他區塊時，container 左右就一直都多 padding 12 px 嗎
+
+A：對，行動版需要，本來就要加
+
+----------------------------
+
+＊ Q：如果今天卡片是用 ul li 沒法使用這個方式嗎？
+
+A：一樣可以，但要清除 ul > li 預設樣式
+
+----------------------------
+
+＊ Q：為何不用 justify-content:space-between 就好？
+
+A：格線系統運用還有相當多情境，如果是只要做 1 欄，且比例要 50%，jcsb 就不能用。這個排版的優勢是，就算加了其他元素，也還是能完全對齊
+
+----------------------------
+
+Q：能用 margin 推嗎？
+
+A：不建議，一來 padding 可推比較完整，二來 margin 的 clips 特性這邊會出問題
+
+----------------------------
+
+Q：結構＝ container > column（欄-容器） > content（內容，這邊是 card）對嗎？
+
+A：正確！（ container 外容器 > column 容器 > content 內容）
+
+----------------------------
+
+Q：margin：3.33333％ 為何移除？
+
+A：因為這不是絕對值，不精準
+
+----------------------------
+
+Q：為何不使用 GAP？
+
+A：因為 GAP 是固定值，如果今天一列中只有 2 個容器就不適合

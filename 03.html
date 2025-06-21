@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="03.css">
+</head>
+<body>
+    <!-- 情境1：產品輪播 -->
+     <div class="box" style="background-image: url(https://images.unsplash.com/photo-1743448748313-80eb7f9eb2b7?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8);"></div>
+
+    <!-- 情境2：這個 樣式 還會用在哪？ -->
+      <!-- css講求 可複用性-->
+    <!-- 情境3：命名也麻煩 -->
+
+    <div class="bg" style="background-image: url(https://images.unsplash.com/photo-1743448748313-80eb7f9eb2b7?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1fHx8ZW58MHx8fHx8);"></div>
+
+
+    <!-- 會講 2 個方法 -->
+    <!-- 前者有缺點，後者是框架實作方式 -->
+     <!-- 方法 1：結構好理解，但數值難控制，早期因語法限制才使用-->
+    <!-- <div class="container d-flex"> -->
+        <!-- 把 .card 變成容器使用了 -->
+        <!-- <div class="card"> -->
+            <!-- <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt=""> -->
+            <!-- <h1>哈哈哈哈哈</h1> -->
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p> -->
+        <!-- </div> -->
+        <!-- <div class="card"> -->
+            <!-- <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt=""> -->
+            <!-- <h1>哈哈哈哈哈</h1> -->
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p> -->
+        <!-- </div> -->
+        <!-- <div class="card"> -->
+            <!-- <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt=""> -->
+            <!-- <h1>哈哈哈哈哈</h1> -->
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p> -->
+        <!-- </div> -->
+        <!-- <div class="card"> -->
+            <!-- <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt=""> -->
+            <!-- <h1>哈哈哈哈哈</h1> -->
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p> -->
+        <!-- </div> -->
+        <!-- <div class="card"> -->
+            <!-- <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt=""> -->
+            <!-- <h1>哈哈哈哈哈</h1> -->
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p> -->
+        <!-- </div> -->
+    <!-- </div> -->
+
+    <hr>
+
+    <!-- 方法 2： 容器與內容分離，目前主流結構 -->
+     <div class="container">
+        <div class="d-flex card-row"><!-- 再把 d-flex 拉出來當容器，在格線系統中稱 row -->
+            <div class="column"><!-- 欄 column -->
+                <div class="card"><!-- 內容 -->
+                    <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="">
+                    <h1>哈哈哈哈哈</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p>
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="column"><!-- 欄 column -->
+                <div class="card"><!-- 內容 -->
+                    <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="">
+                    <h1>哈哈哈哈哈</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p>
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="column"><!-- 欄 column -->
+                <div class="card"><!-- 內容 -->
+                    <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="">
+                    <h1>哈哈哈哈哈</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p>
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="column"><!-- 欄 column -->
+                <div class="card"><!-- 內容 -->
+                    <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="">
+                    <h1>哈哈哈哈哈</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p>
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="column"><!-- 欄 column -->
+                <div class="card"><!-- 內容 -->
+                    <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="">
+                    <h1>哈哈哈哈哈</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p>
+                    <div class="button"></div>
+                </div>
+            </div>
+            <div class="column"><!-- 欄 column -->
+                <div class="card"><!-- 內容 -->
+                    <img src="https://plus.unsplash.com/premium_photo-1749747566115-ad1db55754ee?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8" alt="">
+                    <h1>哈哈哈哈哈</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolores non sit possimus error velit officiis neque, et dolore veritatis perspiciatis culpa ipsam ab! Voluptatibus, quam. Dicta voluptas debitis porro.</p>
+                    <div class="button"></div>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

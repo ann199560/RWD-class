@@ -1,0 +1,83 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+
+
+.container{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.box{
+    width: 50%;
+    /* 不設高，為了能讓容器內的圖片可裝得下 */
+    background: red;
+    padding: 0 20px;
+    border: 3px solid #000;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.box img{
+    max-width: 100%;
+    /* 如果圖片原本尺寸小，又！css只設定 width: 100%，沒加 max，圖片就會糊掉 */
+    height: auto;
+    /* 建議加上 height: auto，不然有些瀏覽器也會圖片變形 */
+}
